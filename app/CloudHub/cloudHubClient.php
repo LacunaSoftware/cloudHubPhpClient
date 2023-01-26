@@ -1,7 +1,6 @@
 <?php
 
 namespace Lacuna\CloudHub;
-require __DIR__ . '../../../vendor/autoload.php';
 
 use Lacuna\CloudHub\RestClient;
 use Lacuna\CloudHub\SessionCreateRequest;
