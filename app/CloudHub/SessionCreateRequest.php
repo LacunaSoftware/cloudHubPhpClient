@@ -2,6 +2,7 @@
 namespace Lacuna\CloudHub;
 
 class SessionCreateRequest {
+    
     public ?string $identifier;
     public ?string $redirectUri;
     public $type;
