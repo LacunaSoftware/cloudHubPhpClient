@@ -23,8 +23,5 @@
             "Lacuna\\CloudHub\\Client\\": "app/CloudHub/Client/",
             "Lacuna\\CloudHub\\Models\\": "app/CloudHub/Models/"
         }
-    },
-    "extra": {
-        "dist-ignore": ["tests/"]
     }
 }
