@@ -2,7 +2,7 @@
     "name": "lacuna/cloudhub-client",
     "description": "Cloud Hub Client API for PHP",
     "require": {
-        "guzzlehttp/guzzle": "^7.5",
+        "guzzlehttp/guzzle": "^6.5.8",
         "php": ">=5.5.0"
     },
     "type": "library",
