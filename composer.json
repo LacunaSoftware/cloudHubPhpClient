@@ -1,5 +1,5 @@
 {
-    "name": "lacuna/cloud-hub-php-client",
+    "name": "lacuna/cloudhub-client",
     "description": "Cloud Hub Client API for PHP",
     "require": {
         "guzzlehttp/guzzle": "^7.5",
