@@ -1,0 +1,23 @@
+{
+    "name": "lacuna/cloud-hub-php-client",
+    "description": "Cloud Hub Client API for PHP",
+    "require": {
+        "guzzlehttp/guzzle": "^7.5",
+        "php": ">=5.5.0"
+    },
+    "authors": [
+        {
+            "name": "Danilo Bispo",
+            "email": "danilob@lacunasoftware.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "CloudHub\\Client\\": "app/CloudHub/Client/",
+            "CloudHub\\Models\\": "app/CloudHub/Models/"
+        }
+    },
+    "extra": {
+        "dist-ignore": ["tests/"]
+    }
+}
