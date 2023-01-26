@@ -1,7 +1,6 @@
 <?php
 
 namespace Lacuna\CloudHub;
-
 use Lacuna\CloudHub\RestClient;
 use Lacuna\CloudHub\SessionCreateRequest;
 use Lacuna\CloudHub\SessionModel;
