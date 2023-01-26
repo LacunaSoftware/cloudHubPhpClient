@@ -20,8 +20,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Lacuna\\CloudHub\\Client\\": "app/CloudHub/Client/",
-            "Lacuna\\CloudHub\\Models\\": "app/CloudHub/Models/"
+            "Lacuna\\CloudHub\\": "app/CloudHub"
         }
     }
 }

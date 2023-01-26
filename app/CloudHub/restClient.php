@@ -1,6 +1,6 @@
 <?php
 
-namespace Lacuna\CloudHub\Client;
+namespace Lacuna\CloudHub;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\TransferException;
 

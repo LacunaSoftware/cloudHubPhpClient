@@ -1,11 +1,12 @@
 <?php
 
-namespace Lacuna\CloudHub\Client;
+namespace Lacuna\CloudHub;
+require __DIR__ . '../../../vendor/autoload.php';
 
-use Lacuna\CloudHub\Client\RestClient;
-use Lacuna\CloudHub\Models\SessionCreateRequest;
-use Lacuna\CloudHub\Models\SessionModel;
-use Lacuna\CloudHub\Models\SignHashRequest;
+use Lacuna\CloudHub\RestClient;
+use Lacuna\CloudHub\SessionCreateRequest;
+use Lacuna\CloudHub\SessionModel;
+use Lacuna\CloudHub\SignHashRequest;
 
 class CloudHubClient {
     private $baseUrl;
