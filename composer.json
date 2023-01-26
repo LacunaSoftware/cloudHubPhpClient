@@ -5,6 +5,13 @@
         "guzzlehttp/guzzle": "^7.5",
         "php": ">=5.5.0"
     },
+    "type": "library",
+    "keywords": [
+        "lacuna",
+        "client lib",
+        "cloudhub"
+    ],
+    "homepage": "https://cloudhub.lacunasoftware.com/",
     "authors": [
         {
             "name": "Danilo Bispo",
