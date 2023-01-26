@@ -1,6 +1,6 @@
 <?php
-namespace CloudHub\Models;
-use CloudHub\Models\TrustServiceAuthParametersModel;
+namespace Lacuna\CloudHub\Models;
+use Lacuna\CloudHub\Models\TrustServiceAuthParametersModel;
 
 
 class SessionModel {

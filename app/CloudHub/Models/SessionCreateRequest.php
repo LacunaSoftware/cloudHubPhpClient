@@ -1,5 +1,5 @@
 <?php
-namespace CloudHub\Models;
+namespace Lacuna\CloudHub\Models;
 
 class SessionCreateRequest {
     public ?string $identifier;

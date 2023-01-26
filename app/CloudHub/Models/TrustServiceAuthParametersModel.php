@@ -1,6 +1,6 @@
 <?php
-namespace CloudHub\Models;
-use CloudHub\Models\TrustServiceInfoModel;
+namespace Lacuna\CloudHub\Models;
+use Lacuna\CloudHub\Models\TrustServiceInfoModel;
 
 class TrustServiceAuthParametersModel {
     public TrustServiceInfoModel $serviceInfo;

@@ -1,11 +1,11 @@
 <?php
 
-namespace CloudHub\Client;
+namespace Lacuna\CloudHub\Client;
 
-use CloudHub\Client\RestClient;
-use CloudHub\Models\SessionCreateRequest;
-use CloudHub\Models\SessionModel;
-use CloudHub\Models\SignHashRequest;
+use Lacuna\CloudHub\Client\RestClient;
+use Lacuna\CloudHub\Models\SessionCreateRequest;
+use Lacuna\CloudHub\Models\SessionModel;
+use Lacuna\CloudHub\Models\SignHashRequest;
 
 class CloudHubClient {
     private $baseUrl;

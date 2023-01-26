@@ -1,5 +1,5 @@
 <?php
-namespace CloudHub\Models;
+namespace Lacuna\CloudHub\Models;
 
 class TrustServiceInfoModel {
     public string $serviceName;

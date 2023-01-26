@@ -2,11 +2,11 @@
 
 require '../app/bootstrap.php';
 
-use CloudHub\Client\CloudHubClient;
-use CloudHub\Models\SessionCreateRequest;
-use CloudHub\Models\TrustServiceAuthParametersModel;
-use CloudHub\Models\TrustServiceInfoModel;
-use CloudHub\Models\TrustServiceSessionTypes;
+use Lacuna\CloudHub\Client\CloudHubClient;
+use Lacuna\CloudHub\Models\SessionCreateRequest;
+use Lacuna\CloudHub\Models\TrustServiceAuthParametersModel;
+use Lacuna\CloudHub\Models\TrustServiceInfoModel;
+use Lacuna\CloudHub\Models\TrustServiceSessionTypes;
 
 function run(){
     $claudioRubens = new CloudHubClient("https://cloudhub.lacunasoftware.com/", "mR1j0v7L12lBHnxpgxVkIdikCN9Gm89rn8I9qet3UHo=");
