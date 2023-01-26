@@ -17,9 +17,9 @@ function run(){
 }
 $res = run();
 
-// var_dump($res);
-// var_dump($res->services);
+var_dump($res);
+var_dump($res->services);
 
-foreach ($res->services as $value) {
-    echo($value->serviceInfo->serviceName);
-}
+// foreach ($res->services as $value) {
+//     echo($value->serviceInfo->serviceName);
+// }

@@ -20,7 +20,6 @@ class CloudHubClient {
         $createSessionEndpoint = "api/sessions/";
         $endpoint = $this->baseUrl . $createSessionEndpoint;
         $res = $this->client->post($endpoint, $sessionCreateRequest);
-        var_dump($res);
         return new SessionModel($res);
     }
 
