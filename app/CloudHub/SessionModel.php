@@ -8,14 +8,17 @@ use Lacuna\CloudHub\TrustServiceAuthParametersModel;
 
 class SessionModel
 {
-    public array $services = array();
+    public array $services;
 
     public function __construct($data)
     {
-        if (!$data['services']) {
+        if (count($data['services']) !== 0) {
             foreach ($data['services'] as $key => $service) {
                 $this->services[$key] = new TrustServiceAuthParametersModel($service);
             }
+        }
+        else {
+            $this->services = array();
         }
     }
 }
