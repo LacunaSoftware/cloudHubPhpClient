@@ -1,10 +1,11 @@
 {
     "name": "lacuna/cloudhub-client",
-    "description": "Cloud Hub Client API for PHP",
+    "description": "cloudhub Client API for PHP",
     "require": {
         "guzzlehttp/guzzle": "^6.5.8",
         "php": ">=5.5.0"
     },
+    "license": "Apache-2.0",
     "type": "library",
     "keywords": [
         "lacuna",
@@ -20,7 +21,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Lacuna\\CloudHub\\": "app/CloudHub"
+            "Lacuna\\Cloudhub\\": "app/Cloudhub"
         }
     }
 }

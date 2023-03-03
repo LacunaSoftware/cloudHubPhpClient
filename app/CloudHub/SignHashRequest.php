@@ -1,5 +1,5 @@
 <?php
-namespace Lacuna\CloudHub;
+namespace Lacuna\Cloudhub;
 
 class SignHashRequest {
     public string $session;

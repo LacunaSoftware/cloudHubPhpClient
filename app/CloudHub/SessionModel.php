@@ -1,9 +1,9 @@
 <?php
 
-namespace Lacuna\CloudHub;
+namespace Lacuna\Cloudhub;
 
 use Exception;
-use Lacuna\CloudHub\TrustServiceAuthParametersModel;
+use Lacuna\Cloudhub\TrustServiceAuthParametersModel;
 
 
 class SessionModel
