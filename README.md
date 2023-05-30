@@ -8,6 +8,6 @@ This dependency is specified in the file `composer.json`:
 
 	{
 		"require": {
-			"lacuna/cloudhub-client": "^1.0.3"
+			"lacuna/cloudhub-client": "^1.0.5"
 		}
 	}
