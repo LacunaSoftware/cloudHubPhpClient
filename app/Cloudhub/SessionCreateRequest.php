@@ -8,11 +8,11 @@ class SessionCreateRequest {
     public $type;
     public int $lifetimeInSeconds;
 
-    public function __construct(string $identifier, string $redirectUri, $type, int $lifetimeInSeconds = 0) {
+    public function __construct(string $identifier, string $redirectUri, $type, int $lifetimeInSeconds = null) {
         $this->identifier = $identifier;
         $this->redirectUri = $redirectUri;
         $this->type = $type;
-        $this->lifetimeInSeconds = $lifetimeInSeconds ?? 0;
+        $this->lifetimeInSeconds = $lifetimeInSeconds ?? 300;
     }
 }
 
