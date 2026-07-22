@@ -1,0 +1,2 @@
+# Enable automatic line ending normalization (keeps diffs clean across Windows/Unix).
+* text=auto
