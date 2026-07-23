@@ -162,3 +162,7 @@ resolved it, and the verification result. Do **not** commit/push/tag unless aske
   `composer install` from the committed lock is unaffected (it does not re-resolve), so verification
   still runs. To re-resolve anyway, either `composer config policy.advisories.block false` for that
   run, or migrate to Guzzle 7 (see the `feature/guzzle7` branch) — the latter is the real remediation.
+- **`405 Method Not Allowed` on `POST /api/sessions/`**: the configured base URL is `http://`. CloudHub
+  301-redirects http→https, and a non-strict redirect downgrades the POST to a GET (`GET /api/sessions`
+  isn't a route → 405). Fixed in 2.0.1 — `RestClient` sets `allow_redirects => ['strict' => true]` so the
+  POST is preserved to the https location. Prefer configuring an `https://` endpoint regardless.
