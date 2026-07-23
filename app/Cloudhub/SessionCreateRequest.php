@@ -3,7 +3,11 @@ namespace Lacuna\Cloudhub;
 
 class SessionCreateRequest {
 
-    public string $identifier;
+    // `identifier` (the signer's CPF/CNPJ) is OPTIONAL on the server, so it is nullable here too:
+    // pass null to start a session with no identifier (e.g. list every configured service, or let a
+    // named service identify the signer via its own auth/QR flow). Still the first positional arg,
+    // so existing callers that pass a string keep working unchanged.
+    public ?string $identifier;
     public string $redirectUri;
     public $type;
     public int $lifetimeInSeconds;
@@ -13,7 +17,7 @@ class SessionCreateRequest {
     public ?string $customState;
     public ?bool $discover;
 
-    public function __construct(string $identifier, string $redirectUri, $type, int $lifetimeInSeconds = null, $identifierType = null, string $customState = null, bool $discover = null) {
+    public function __construct(?string $identifier, string $redirectUri, $type, int $lifetimeInSeconds = null, $identifierType = null, string $customState = null, bool $discover = null) {
         $this->identifier = $identifier;
         $this->redirectUri = $redirectUri;
         $this->type = $type;
