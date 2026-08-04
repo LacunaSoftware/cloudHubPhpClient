@@ -134,4 +134,33 @@ class CloudhubClientTest extends TestCase
         $this->assertNull($svc->serviceInfo->badgeUrl);
         $this->assertNull($svc->authUrl);
     }
+
+    public function testSessionCreateRequestAllowsNullIdentifier()
+    {
+        // 2.0.1: the CPF is optional server-side, so null must be accepted (no TypeError) and sent as null.
+        $req = new SessionCreateRequest(null, 'https://localhost:8000/', TrustServiceSessionTypes::SingleSignature);
+        $this->assertNull($req->identifier);
+        $json = json_decode(json_encode($req), true);
+        $this->assertNull($json['identifier']);
+        $this->assertSame('SingleSignature', $json['type']);
+    }
+
+    public function testPostPreservesMethodAcrossHttpToHttpsRedirect()
+    {
+        // 2.0.1 regression: an http base URL gets a 301 -> https from CloudHub. Strict redirects must
+        // keep the request a POST (not downgrade to GET, which the server answers with 405), and carry
+        // the api key to the https location.
+        $mock = new MockHandler([
+            new Response(301, ['Location' => 'https://cloudhub.example/api/sessions/']),
+            new Response(200, [], json_encode(['services' => []])),
+        ]);
+        $rest = new RestClient('http://cloudhub.example/', 'MY-API-KEY', HandlerStack::create($mock));
+
+        $req = new SessionCreateRequest(null, 'https://localhost:8000/', TrustServiceSessionTypes::SingleSignature);
+        $rest->post('http://cloudhub.example/api/sessions/', $req);
+
+        $this->assertSame('POST', $mock->getLastRequest()->getMethod());
+        $this->assertSame('https://cloudhub.example/api/sessions/', (string) $mock->getLastRequest()->getUri());
+        $this->assertSame('MY-API-KEY', $mock->getLastRequest()->getHeaderLine('x-api-key'));
+    }
 }

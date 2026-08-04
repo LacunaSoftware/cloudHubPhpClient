@@ -26,7 +26,12 @@ class RestClient
             'base_uri' => $this->baseUrl,
             'headers' => $headers,
             'http_errors' => true,
-            'verify' => false
+            'verify' => false,
+            // Preserve the HTTP method across redirects. CloudHub answers a plain-http request with a
+            // 301 to its https URL; without strict mode Guzzle would downgrade the POST to a GET and
+            // the server returns "405 Method Not Allowed" (GET isn't a route). Strict redirects re-send
+            // the POST to the https location, so an http base URL transparently upgrades instead of 405ing.
+            'allow_redirects' => ['strict' => true]
         ];
         // Optional Guzzle handler injection (used by unit tests with a MockHandler). Null in
         // production, so behavior is unchanged.
