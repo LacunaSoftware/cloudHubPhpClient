@@ -35,6 +35,26 @@ class CloudhubClientTest extends TestCase
         $this->assertSame('BASE64CERT', $result);
     }
 
+    public function testTlsVerificationIsEnabledByDefault()
+    {
+        $mock = new MockHandler([new Response(200, [], json_encode('X'))]);
+        $rest = new RestClient('https://cloudhub.example/', 'MY-API-KEY', HandlerStack::create($mock));
+
+        $rest->get('https://cloudhub.example/api/x');
+
+        $this->assertNotFalse($mock->getLastOptions()['verify'] ?? true);
+    }
+
+    public function testTlsVerificationIsDisabledOnlyWhenDangerousOptionIsSet()
+    {
+        $mock = new MockHandler([new Response(200, [], json_encode('X'))]);
+        $rest = new RestClient('https://cloudhub.example/', 'MY-API-KEY', HandlerStack::create($mock), true);
+
+        $rest->get('https://cloudhub.example/api/x');
+
+        $this->assertFalse($mock->getLastOptions()['verify']);
+    }
+
     public function testApiKeyHeaderIsSentOnPost()
     {
         $mock = new MockHandler([new Response(200, [], json_encode(['services' => []]))]);

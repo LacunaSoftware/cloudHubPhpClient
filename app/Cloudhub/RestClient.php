@@ -9,11 +9,13 @@ class RestClient
     private string $apiKey;
     private string $baseUrl;
     private $handler;
+    private bool $dangerouslyDisableTlsVerification;
 
-    public function __construct(string $baseUrl, string $apiKey, $handler = null) {
+    public function __construct(string $baseUrl, string $apiKey, $handler = null, bool $dangerouslyDisableTlsVerification = false) {
         $this->baseUrl = $baseUrl;
         $this->apiKey = $apiKey;
         $this->handler = $handler;
+        $this->dangerouslyDisableTlsVerification = $dangerouslyDisableTlsVerification;
     }
 
     public function getRestClient()
@@ -26,13 +28,15 @@ class RestClient
             'base_uri' => $this->baseUrl,
             'headers' => $headers,
             'http_errors' => true,
-            'verify' => false,
             // Preserve the HTTP method across redirects. CloudHub answers a plain-http request with a
             // 301 to its https URL; without strict mode Guzzle would downgrade the POST to a GET and
             // the server returns "405 Method Not Allowed" (GET isn't a route). Strict redirects re-send
             // the POST to the https location, so an http base URL transparently upgrades instead of 405ing.
             'allow_redirects' => ['strict' => true]
         ];
+        if ($this->dangerouslyDisableTlsVerification) {
+            $config['verify'] = false;
+        }
         // Optional Guzzle handler injection (used by unit tests with a MockHandler). Null in
         // production, so behavior is unchanged.
         if ($this->handler !== null) {

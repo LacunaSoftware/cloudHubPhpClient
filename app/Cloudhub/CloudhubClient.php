@@ -14,9 +14,9 @@ class CloudhubClient {
     private $baseUrl;
     private RestClient $client;
 
-    public function __construct($baseUrl, $apiKey) {
+    public function __construct($baseUrl, $apiKey, bool $dangerouslyDisableTlsVerification = false) {
         $this->baseUrl = $baseUrl;
-        $this->client = new RestClient($baseUrl, $apiKey);
+        $this->client = new RestClient($baseUrl, $apiKey, null, $dangerouslyDisableTlsVerification);
     }
 
     public function createSessionAsync(SessionCreateRequest $sessionCreateRequest){
